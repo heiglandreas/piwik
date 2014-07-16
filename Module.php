@@ -33,6 +33,7 @@ namespace OrgHeiglPiwik;
 
 
 use Zend\EventManager\StaticEventManager;
+use Zend\Mvc\MvcEvent;
 use Zend\View\ViewEvent;
 use Zend\View\View;
 
