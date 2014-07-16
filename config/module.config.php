@@ -30,7 +30,9 @@
  */
 return array(
     'orgHeiglPiwik' => array(
-        'server' => 'http://example.org',
+
+        // Always include a trailing slash!
+        'server' => 'http://example.org/',
         'site_id' => 1,
     ),
 );
