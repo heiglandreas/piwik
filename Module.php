@@ -49,18 +49,25 @@ var pkBaseURL = (("https:" == document.location.protocol) ? "https://%%server%%"
     } catch( err ) {}
 EOT;
 
+    protected $serviceManager = null;
+
     public function getConfig()
     {
         return include __DIR__ . '/config/module.config.php';
     }
 
-    public function init()
+    public function onBootstrap(MvcEvent $e)
+    {
+        $this->serviceManager = $e->getApplication()->getServiceManager();
+    }
+
+        public function init()
     {
         // Attach Event to EventManager
         $events = StaticEventManager::getInstance ();
 
         // Add event of authentication before dispatch
-        $events->attach('Zend\View\View', 'renderer', array(
+        $events->attach('Zend\View\View', ViewEvent::EVENT_RENDERER_POST, array(
             $this,
             'addPiwikCode'
         ), 110 );
@@ -78,15 +85,18 @@ EOT;
             return;
         }
 
-        $target         = $event->getTarget ();
-        $serviceLocator = $target->getServiceLocator();
-        $config         = $serviceLocator->get('config');
+        $renderer = $event->getRenderer();
+        if (! $renderer instanceof \Zend\View\Renderer\PhpRenderer) {
+            return;
+        }
+
+        $config         = $this->serviceManager->get('config');
         $piwikConfig    = $config['orgHeiglPiwik'];
 
         $code = str_replace(array_map(function($e){
             return '%%' . $e . '%%';
         }, array_keys($piwikConfig)), array_values($piwikConfig), $this->template);
 
-        $model->headScript()->appendScript('//<![CDATA[' . "\n" . $code . "\n" . '//]]>');
+        $renderer->headScript()->appendScript('//<![CDATA[' . "\n" . $code . "\n" . '//]]>');
     }
 } 
