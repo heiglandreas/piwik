@@ -68,7 +68,7 @@ EOT;
         $events = StaticEventManager::getInstance ();
 
         // Add event of authentication before dispatch
-        $events->attach('Zend\View\View', ViewEvent::EVENT_RENDERER_POST, array(
+        $events->attach('Zend\View\View', ViewEvent::EVENT_RESPONSE, array(
             $this,
             'addPiwikCode'
         ), 110 );
