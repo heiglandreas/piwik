@@ -32,7 +32,7 @@ return array(
     'orgHeiglPiwik' => array(
 
         // Always include a trailing slash!
-        'server' => 'http://example.org/',
+        'server' => 'example.org/',
         'site_id' => 1,
     ),
 );
