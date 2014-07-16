@@ -1,0 +1,29 @@
+{
+    "name": "org_heigl/piwik",
+    "description": "Easy way to integrate piwik (http://piwik.org) analysis into a Zend-Framework Project ",
+    "type": "library",
+    "license": "MIT",
+    "keywords": [
+        "zf2", "piwik"
+    ],
+    "homepage": "https://github.com/heiglandreas/piwik",
+    "authors": [
+        {
+            "name": "Andreas Heigl",
+            "email": "andreas@heigl.org",
+            "homepage": "http://andreas.heigl.org"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.3",
+        "zendframework/zendframework": "2.3.*"
+    },
+    "autoload": {
+        "psr-0": {
+            "OrgHeiglPiwik": "src/"
+        },
+        "classmap": [
+            "./Module.php"
+        ]
+    }
+}
