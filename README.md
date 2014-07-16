@@ -26,5 +26,5 @@ me directly at ```piwik (AT) heigl (DOT) org```
 
 ## License:
 
-THis module is licensed according to the [LICENSE](LICENSE)-Document.
+This module is licensed according to the [LICENSE](LICENSE)-Document.
 
