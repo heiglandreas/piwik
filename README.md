@@ -6,7 +6,7 @@ This module integrates the piwik-tracking-code into all WebViews of your ZF2-Sit
 
 ## Installation:
 
-Piwik is best installed via composer. Include the following line into the 
+Piwik is best installed via [composer](http://getcomposer.org). Include the following line into the 
 ```require```-section of your ```composer.json```-File:
 
     "org_heigl/piwik" : "1.0.*"
