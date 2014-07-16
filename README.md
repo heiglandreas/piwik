@@ -20,9 +20,7 @@ Piwik is best installed via [composer](http://getcomposer.org). Include the foll
 
 ## Feedback:
 
-Feel free to provide feedback by opening issues on the 
-[issue-tracker](https://github.com/heiglandreas/piwik/issues) or by contacting 
-me directly at ```piwik (AT) heigl (DOT) org```
+Feel free to provide feedback by opening [issues](https://github.com/heiglandreas/piwik/issues) or pull-requests or by contacting me directly at ```piwik (AT) heigl (DOT) org```
 
 ## License:
 
