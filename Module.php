@@ -40,14 +40,14 @@ use Zend\View\View;
 class Module
 {
     protected $template = <<<EOT
-var pkBaseURL = (("https:" == document.location.protocol) ? "https://%%server%%" : "http://%%server%%");
-    document.write(unescape("%3Cscript src='" + pkBaseURL + "piwik.js' type='text/javascript'%3E%3C/script%3E"));
-    </script><script type="text/javascript">
-    try {
-        var piwikTracker = Piwik.getTracker(pkBaseURL + "piwik.php", %%site_id%%);
-        piwikTracker.trackPageView();
-        piwikTracker.enableLinkTracking();
-    } catch( err ) {}
+var _paq = _paq || [];
+(function(){ var u=(("https:" == document.location.protocol) ? "https://%%server%%/" : "http://%%server%%/");
+_paq.push(['setSiteId', %%site_id%%]);
+_paq.push(['setTrackerUrl', u+'piwik.php']);
+_paq.push(['trackPageView']);
+_paq.push(['enableLinkTracking']);
+var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0]; g.type='text/javascript'; g.defer=true; g.async=true; g.src=u+'piwik.js';
+s.parentNode.insertBefore(g,s); })();
 EOT;
 
     protected $serviceManager = null;
