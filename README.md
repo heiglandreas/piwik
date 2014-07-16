@@ -14,11 +14,9 @@ Piwik is best installed via composer. Include the following line into the
 
 ## Usage:
 
-1. Add the module to the ```modules```-list of your applications 
-```application.config.php```-File.
-2. Copy this modules ```module.config.php```-File to your applications `
-```config/autoload``-directory and edit it according to your piwik-settings.
-3. There is no third step!
+ 1. Add the module to the ```modules```-list of your applications ```application.config.php```-File.
+ 2. Copy this modules ```module.config.php```-File to your applications ```config/autoload``-directory and edit it according to your piwik-settings.
+ 3. There is no third step!
 
 ## Feedback:
 
