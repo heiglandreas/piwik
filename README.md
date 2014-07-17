@@ -17,6 +17,22 @@ Piwik is best installed via [composer](http://getcomposer.org). Include the foll
  1. Add the module to the ```modules```-list of your applications ```application.config.php```-File.
  2. Copy this modules ```module.config.php```-File to your applications ```config/autoload``-directory and edit it according to your piwik-settings.
  3. There is no third step!
+ 
+## Configuration:
+
+The configuration consists of two parameters:
+
+    return array(
+        'orgHeiglPiwik' => array(
+    
+            // Always omit a trailing slash!
+            'server' => 'example.org',
+            'site_id' => 1,
+        ), 
+    );
+    
+ * **server** is the server your piwik installation is running at. Omit a trailing slash as well as a scheme (```http://``` or ```https://```). If you have installed piwik in a subdirectory you will have to include that here as well. So it would read ```example.org/piwik``` when you have installed your piwik-instance in the subdirectory ```piwik``` on the server ```example.org```.
+ * **site_id** is the ID of the site you want to track as configured in your piwik-installation.
 
 ## Feedback:
 
