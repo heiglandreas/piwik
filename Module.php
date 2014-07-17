@@ -68,7 +68,7 @@ EOT;
         $events = StaticEventManager::getInstance ();
 
         // Add event of authentication before dispatch
-        $events->attach('Zend\View\View', ViewEvent::EVENT_RESPONSE, array(
+        $events->attach('Zend\View\View', ViewEvent::EVENT_RENDERER_POST, array(
             $this,
             'addPiwikCode'
         ), 110 );
@@ -86,6 +86,12 @@ EOT;
             return;
         }
 
+        // Return if this is a subrenderer. Therefore we only render once!
+        $options = $model->getOptions();
+        if (array_key_exists('has_parent', $options) && $options['has_parent']) {
+            return;
+        }
+
         $renderer = $event->getRenderer();
         if (! $renderer instanceof \Zend\View\Renderer\PhpRenderer) {
             return;
@@ -99,5 +105,7 @@ EOT;
         }, array_keys($piwikConfig)), array_values($piwikConfig), $this->template);
 
         $renderer->headScript()->appendScript('//<![CDATA[' . "\n" . $code . "\n" . '//]]>');
+
+        return $renderer;
     }
 } 
