@@ -40,14 +40,16 @@ use Zend\View\View;
 class Module
 {
     protected $template = <<<EOT
-var _paq = _paq || [];
-(function(){ var u=(("https:" == document.location.protocol) ? "https://%%server%%/" : "http://%%server%%/");
-_paq.push(['setSiteId', %%site_id%%]);
-_paq.push(['setTrackerUrl', u+'piwik.php']);
-_paq.push(['trackPageView']);
-_paq.push(['enableLinkTracking']);
-var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0]; g.type='text/javascript'; g.defer=true; g.async=true; g.src=u+'piwik.js';
-s.parentNode.insertBefore(g,s); })();
+  var _paq = _paq || [];
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="//%%server%%/";
+    _paq.push(['setTrackerUrl', u+'piwik.php']);
+    _paq.push(['setSiteId', %%site_id%%]);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
+  })();
 EOT;
 
     protected $serviceManager = null;
